@@ -15,7 +15,12 @@ class LocationDetail extends StatelessWidget {
     var location = MockLocation.fetch(this.locationId);
     return Scaffold(
         appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle)),
-        body: ListView(children: _renderBody(context, location)));
+        body: SingleChildScrollView(
+          child: Column(
+              children: _renderBody(context, location),
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch)
+        ));
   }
 
   List<Widget> _renderBody(BuildContext context, Location location) {
