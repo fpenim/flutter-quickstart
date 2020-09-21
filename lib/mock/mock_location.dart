@@ -1,17 +1,13 @@
-
-
 import 'package:flutter_quickstart/model/location.dart';
 import 'package:flutter_quickstart/model/location_fact.dart';
 
 class MockLocation extends Location {
 
-  static Location fetchAny() {
-    return items.first;
-  }
+  static Location fetchAny() => items.first;
 
-  static List<Location> fetchAll() {
-    return items;
-  }
+  static List<Location> fetchAll() => items;
+
+  static Location fetch(int index) => items[index];
 
   static final List<Location> items = [
     Location(
@@ -64,6 +60,25 @@ class MockLocation extends Location {
               "the Fortress of Saint James of Sesimbra in the centre of town and "
               "the Fort of São Teodósio da Ponta do Cavalo. The former contains "
               "a museum covering Sesimbra's history as a fishing village."
+        )
+      ]),
+    Location(
+      name: "Coimbra, Portugal",
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Coimbra_University_tower_building.jpg",
+      facts: [
+        LocationFact(
+          title: "University city",
+          text: "Among the many archaeological structures dating back to the Roman era, "
+              "when Coimbra was the settlement of Aeminium, are its well-preserved aqueduct "
+              "and cryptoporticus. Similarly, buildings from the period when Coimbra was "
+              "the capital of Portugal (from 1131 to 1255) still remain. During the late "
+              "Middle Ages, with its decline as the political centre of the Kingdom "
+              "of Portugal, Coimbra began to evolve into a major cultural centre. "
+              "This was in large part helped by the establishment of the University "
+              "of Coimbra in 1290, the oldest academic institution in the Portuguese-speaking world. "
+              "Apart from attracting many European and international students, "
+              "the university is visited by many tourists for its monuments and history. "
+              "Its historical buildings were classified as a World Heritage site by UNESCO in 2013."
         )
       ])
   ];
