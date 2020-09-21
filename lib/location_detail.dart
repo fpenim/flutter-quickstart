@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_quickstart/model/location.dart';
 import 'package:flutter_quickstart/model/location_fact.dart';
 import 'package:flutter_quickstart/style/Styles.dart';
-
-import 'model/Location.dart';
 
 class LocationDetail extends StatelessWidget {
   final Location location;
@@ -14,9 +12,8 @@ class LocationDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle)),
-      body: ListView(children: _renderBody(context, location))
-    );
+        appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle)),
+        body: ListView(children: _renderBody(context, location)));
   }
 
   List<Widget> _renderBody(BuildContext context, Location location) {
@@ -30,8 +27,7 @@ class LocationDetail extends StatelessWidget {
     return Container(
         constraints: BoxConstraints.tightFor(height: height),
         // Named constructor
-        child: Image.network(url, fit: BoxFit.fitWidth)
-    );
+        child: Image.network(url, fit: BoxFit.fitWidth));
   }
 
   List<Widget> _renderFacts(Location location) {
@@ -47,22 +43,17 @@ class LocationDetail extends StatelessWidget {
 
   Widget _sectionTitle(String title) {
     return Container(
-      padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 10.0),
-      child: Text(
-        title,
-        textAlign: TextAlign.left,
-        style: Styles.headerLarge,
-      )
-    );
+        padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 10.0),
+        child: Text(
+          title,
+          textAlign: TextAlign.left,
+          style: Styles.headerLarge,
+        ));
   }
 
   Widget _sectionText(String text) {
     return Container(
-      padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
-      child: Text(
-        text,
-        style: Styles.textDefault
-      )
-    );
+        padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
+        child: Text(text, style: Styles.textDefault));
   }
 }

@@ -1,3 +1,5 @@
+
+
 import 'package:flutter_quickstart/model/location.dart';
 import 'package:flutter_quickstart/model/location_fact.dart';
 
@@ -46,14 +48,12 @@ class MockLocation extends Location {
           text: "Sesimbra is a municipality of Portugal, in the Setúbal District, "
               "lying at the foothills of the Serra da Arrábida, a mountain range "
               "between Setúbal and Sesimbra. Due to its particular position at the Setúbal Bay, "
-              "near the mouth of the Sado River and its natural harbour, it’s an important fishing town."
+              "near the mouth of the Sado River and its natural harbour, it’s an important fishing town. "
+              "The town is known for its beaches, fish restaurants and nightlife. "
         ),
         LocationFact(
-          title: "",
-          text: "Besides professional fishing and sport fishing (mainly of swordfish), "
-              "the most significant revenues in Sesimbra come from tourism. "
-              "The town is known for its beaches, fish restaurants and nightlife. "
-              "The original name of Celtic origin was Cempsibriga, meaning the high "
+          title: "Brief history",
+          text: "The original name of Celtic origin was Cempsibriga, meaning the high "
               "place (briga) of the Celtic tribe the Cempsi. Close by, "
               "on a mountaintop, 240 m (787.40 ft) above sea level, lies strategically "
               "(the ruins of) the Moorish castle. It was taken from the Moors, "
