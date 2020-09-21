@@ -15,6 +15,7 @@ class LocationList extends StatelessWidget {
       appBar: AppBar(title: Text("Locations", style: Styles.navBarTitle)),
       body: ListView.builder(
         itemCount: this.locations.length,
+        // (context, index) arguments match
         itemBuilder: _buildListTile,
       )
     );
