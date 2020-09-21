@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_quickstart/model/location_fact.dart';
+import 'package:flutter_quickstart/style/Styles.dart';
 
 import 'model/Location.dart';
 
@@ -13,10 +14,8 @@ class LocationDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(location.name)),
-      body: ListView(
-        children: _renderBody(context, location),
-      ),
+      appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle,)),
+      body: ListView(children: _renderBody(context, location))
     );
   }
 
@@ -52,18 +51,18 @@ class LocationDetail extends StatelessWidget {
       child: Text(
         title,
         textAlign: TextAlign.left,
-        style: TextStyle(
-            fontSize: 25.0,
-            color: Colors.black
-        ),
-      ),
+        style: Styles.headerLarge,
+      )
     );
   }
 
   Widget _sectionText(String text) {
     return Container(
       padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
-      child: Text(text),
+      child: Text(
+        text,
+        style: Styles.textDefault
+      )
     );
   }
 }
