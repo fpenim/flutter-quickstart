@@ -14,7 +14,7 @@ class LocationDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle,)),
+      appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle)),
       body: ListView(children: _renderBody(context, location))
     );
   }
