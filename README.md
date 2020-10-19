@@ -19,3 +19,8 @@ samples, guidance on mobile development, and a full API reference.
 ```
 flutter packages pub run build_runner build
 ```
+
+### Re-generate model serialization code
+```
+flutter packages pub run build_runner build --delete-conflicting-outputs
+```
