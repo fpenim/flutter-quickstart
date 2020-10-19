@@ -4,15 +4,40 @@ import 'package:flutter_quickstart/model/location.dart';
 import 'package:flutter_quickstart/model/location_fact.dart';
 import 'package:flutter_quickstart/style/Styles.dart';
 
-class LocationDetail extends StatelessWidget {
+class LocationDetail extends StatefulWidget {
   final int locationId;
 
-  // Constructor
   LocationDetail(this.locationId);
 
   @override
+  createState() => _LocationDetailState(this.locationId);
+}
+
+class _LocationDetailState extends State<LocationDetail> {
+  final int locationId;
+  Location location = Location.blank();
+
+  // Constructor
+  _LocationDetailState(this.locationId);
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  void loadData() async {
+    final data = await Location.fetchById(this.locationId);
+
+    if(mounted) {
+      setState(() {
+        this.location = data;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var location = MockLocation.fetch(this.locationId);
     return Scaffold(
         appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle)),
         body: SingleChildScrollView(
@@ -31,10 +56,19 @@ class LocationDetail extends StatelessWidget {
   }
 
   Widget _bannerImage(String url, double height) {
+    Image image;
+    try {
+      if (url.isNotEmpty) {
+        image = Image.network(url, fit: BoxFit.fitWidth);
+      }
+    } catch(e) {
+      print('Could not load image from: $url');
+    }
     return Container(
         constraints: BoxConstraints.tightFor(height: height),
         // Named constructor
-        child: Image.network(url, fit: BoxFit.fitWidth));
+        child: image
+    );
   }
 
   List<Widget> _renderFacts(Location location) {
@@ -63,4 +97,5 @@ class LocationDetail extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
         child: Text(text, style: Styles.textDefault));
   }
+
 }
